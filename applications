@@ -1,4 +1,4 @@
-const destinationDocument = SpreadsheetApp.openbyId('1NrOXIXIzZjzVTkW5nZERC8B6r0HnqmMSo_LbxwfR_Tk')
+const destinationDocument = SpreadsheetApp.openByUrl('https://docs.google.com/spreadsheets/d/1NrOXIXIzZjzVTkW5nZERC8B6r0HnqmMSo_LbxwfR_Tk/edit#gid=0')
 
 
 function onOpen() {
@@ -41,9 +41,6 @@ function pushData() {
     var mobileListNumber = activeSheet.getRange('B3').getValue();
     var sourceData = activeSheet.getRange("A8:K42").getValues();
     var destinationTab = destinationDocument.getSheetByName(sendDate + ' Send ' + sendNumber + ' ML ' + mobileListNumber);
-    var destinationRange = destinationTab;
-
-    Logger.log(sourceData);
 
     if (destinationTab) {
 
