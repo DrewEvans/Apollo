@@ -1,5 +1,5 @@
 const destinationDocument = SpreadsheetApp.openByUrl(
-    'https://docs.google.com/spreadsheets/d/1JVk5QK_UM7H9NPBQ2GdZ2e3ma45Jnn2Efax_79DoZIg/edit#gid=0'
+    ''
 );
 const activeDocument = SpreadsheetApp.getActiveSpreadsheet();
 
@@ -14,18 +14,16 @@ function onOpen() {
 
 function dataCapture() {
 
-    // get current sheet and tabs after send data has been selected
     var ss = SpreadsheetApp.getActiveSpreadsheet();
     var dealSelection = ss.getSheetByName('SELECTED DEALS');
     var database = ss.getSheetByName('deal_log');
 
-    // count rows of data to capture
     var current_rows = dealSelection.getLastRow();
     var database_rows = database.getLastRow() + 1;
     var database_rows_new = current_rows + database_rows - 5;
     var rows_new = dealSelection.getRange("A5:V" + current_rows).getValues();
 
-    // Database range that is being captured
+    
     database.getRange("A" + database_rows + ":V" + database_rows_new).setValues(rows_new);
 }
 
